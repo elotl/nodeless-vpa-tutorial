@@ -1,3 +1,5 @@
+# This is a copy of https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/examples/hamster.yaml
+# with added annotation "kubernetes.io/target-runtime: kiyot" to enable pods to be schedule through Kiyot.
 ---
 apiVersion: apps/v1
 kind: Deployment
