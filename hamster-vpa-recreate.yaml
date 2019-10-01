@@ -8,3 +8,5 @@ spec:
     apiVersion: "apps/v1"
     kind: Deployment
     name: hamster
+  updatePolicy:
+    updateMode: "Recreate"
