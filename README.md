@@ -61,7 +61,7 @@ vpa-updater                1/1     1            1           103s
 ```
 ### Step 4: [Test VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#test-your-installation)
 
-Create `hamster` Deployment. The Deployment has two pods, each running two containers with compute-intensive cpu `stress` workload. Note that the Deployment does not specify cpu/mem requests/limits.
+Create `hamster` Deployment. The Deployment has two pods, each running two containers with compute-intensive cpu `stress` workload. *Note that the Deployment does not specify cpu/mem requests/limits.*
 
 ```
 git clone https://github.com/elotl/nodeless-vpa-tutorial.git
@@ -94,7 +94,7 @@ cd6a652b-fdc8-4e9f-a792-2eb8f6d6d9b5   default_hamster-849d779b4c-rsqzc         
 cf28a9ae-dda2-4313-a397-1fcc180cddbd   default_hamster-849d779b4c-m78km          ip-10-0-16-14.ec2.internal   On-Demand     t3.nano         i-06ca7024f6c658e30   10.0.22.6
 ```
 
-Notice that we got `t3.nano` (2 vpcu, 0.5GiB) as launch type for `hamster` pods. Since we did not specify cpu/mem request/limit, Nodeless k8s gave us the most cost efficient compute for hamster pods.
+*Notice that we got `t3.nano` (2 vpcu, 0.5GiB) on-demand launch type for `hamster` pods. Since we did not specify cpu/mem request/limit, Nodeless k8s gave us the most cost efficient compute for hamster pods.*
 
 ### Step 5: Create VPA for `hamster` deployment
 
@@ -190,7 +190,7 @@ NAME                                   POD NAME                                 
 cb2f59d6-caf7-4c1f-829a-4559943cbdae   default_hamster-849d779b4c-rnrrl          ip-10-0-16-14.ec2.internal   On-Demand     c5.large        i-0149e74302de826fa   10.0.17.64
 ```
 
-Notice `hamster` pods are now running on `c5.large` (2 vcpu, 4GiB) launch type which is a compute optimized launch type that fits the VPA-issued resource recommendations. 
+*Notice `hamster` pods are now running on `c5.large` (2 vcpu, 4GiB) launch type which is a compute optimized launch type that fits the VPA-issued resource recommendations.*
 
 ### Teardown
 
